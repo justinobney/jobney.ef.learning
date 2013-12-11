@@ -1,21 +1,25 @@
-﻿using System.Web.Mvc;
-using Jobney.EF.Learning.Commands;
+﻿using System.Linq;
+using System.Web.Mvc;
+using Jobney.Core.Domain.Interfaces;
+using Jobney.EF.Learning.Models;
 
 namespace Jobney.EF.Learning.Controllers
 {
     public class HomeController : BaseController
     {
+        private readonly IUnitOfWork _uow;
+
+        public HomeController(IUnitOfWork uow)
+        {
+            _uow = uow;
+        }
+
         public ActionResult Index()
         {
-            var newPerson = Mediator.Send(new CreateUserCommand
-            {
-                FirstName = "Justin",
-                LastName = "Obney",
-                Email = "justinobney@gmail.com"
-            });
+            var service = _uow.GetRepository<Customer>();
+            var vm = service.GetAll().FirstOrDefault();
 
-
-            return View(newPerson);
+            return View(vm);
         }
     }
 }
