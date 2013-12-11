@@ -1,6 +1,8 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using Autofac;
 using Autofac.Integration.Mvc;
+using Envoc.Mediator;
 using Jobney.Core;
 using Jobney.Core.Domain.Interfaces;
 using Jobney.EF.Learning.Data;
@@ -22,8 +24,24 @@ namespace Jobney.EF.Learning.Configuration
                 .As<IUnitOfWork>()
                 .InstancePerLifetimeScope();
 
-            builder.RegisterGeneric(typeof(Repository<>))
-                .As(typeof(IRepository<>));
+            RegisterGeneric(builder, typeof(ICommandHandler<>));
+            RegisterGeneric(builder, typeof(ICommandHandler<,>));
+            RegisterGeneric(builder, typeof(IQueryHandler<,>));
+
+            builder.Register(x =>
+            {
+                var ctx = x.Resolve<IComponentContext>();
+                return new Mediator(ctx.Resolve);
+            }).As<IMediator>();
+        }
+
+
+
+        private void RegisterGeneric(ContainerBuilder builder, Type type)
+        {
+            builder.RegisterAssemblyTypes(ThisAssembly)
+                   .AsClosedTypesOf(type)
+                   .AsImplementedInterfaces();
         }
     }
 }

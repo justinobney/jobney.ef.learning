@@ -52,6 +52,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Envoc.Mediator">
+      <HintPath>..\packages\Envoc.Mediator.1.0.0.1\lib\Net40\Envoc.Mediator.dll</HintPath>
+    </Reference>
     <Reference Include="Jobney.Core">
       <HintPath>..\..\Jobney.Core\Jobney.Core\bin\Release\Jobney.Core.dll</HintPath>
     </Reference>
@@ -141,12 +144,15 @@
     <Compile Include="Configuration\RouteConfig.cs" />
     <Compile Include="Configuration\WebApiConfig.cs" />
     <Compile Include="Configuration\WebModule.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\EFConfigurations\CustomerConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Commands\CreateUserCommand.cs" />
+    <Compile Include="Commands\CreateUserCommandHandler.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
