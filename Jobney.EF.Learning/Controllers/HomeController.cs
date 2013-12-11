@@ -21,5 +21,10 @@ namespace Jobney.EF.Learning.Controllers
 
             return View(vm);
         }
+
+        public ActionResult SinglePageApp()
+        {
+            return View();
+        }
     }
 }

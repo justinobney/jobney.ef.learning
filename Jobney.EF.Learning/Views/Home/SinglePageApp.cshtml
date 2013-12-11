@@ -1,0 +1,17 @@
+﻿@model dynamic
+
+<div class="container" data-ng-app="Learning.App1" data-ng-controller="MainCtrl" data-ng-cloak>
+    @Html.Partial("_TopBar")
+
+    <h2>Single Page App Here</h2>
+    <h3>{{title}}</h3>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/ng-base")
+    @Scripts.Render("~/bundles/ng-services")
+    @Scripts.Render("~/bundles/ng-App1")
+    @*@Scripts.Render("~/bundles/ng-directives")
+    @Scripts.Render("~/bundles/ng-filters")*@
+}

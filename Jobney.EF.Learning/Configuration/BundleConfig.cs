@@ -13,6 +13,19 @@ namespace Jobney.EF.Learning
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/lodash.js"
                         ));
+
+            bundles.Add(new ScriptBundle("~/bundles/ng-base").Include(
+                        "~/Scripts/angular.js",
+                        "~/Scripts/AngularUI/ui-router.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/ng-services")
+                .Include("~/Scripts/App/Shared/Services/_module.js")
+                .IncludeDirectory("~/Scripts/App/Shared/Services", "*.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ng-App1")
+                .Include("~/Scripts/App/App1/_module.js")
+                .IncludeDirectory("~/Scripts/App/App1", "*.js"));
             
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
