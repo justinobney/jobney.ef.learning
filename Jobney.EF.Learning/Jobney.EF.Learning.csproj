@@ -139,10 +139,18 @@
     <Compile Include="Configuration\BundleConfig.cs" />
     <Compile Include="Configuration\FilterConfig.cs" />
     <Compile Include="Configuration\RouteConfig.cs" />
+    <Compile Include="Configuration\WebApiConfig.cs" />
+    <Compile Include="Configuration\WebModule.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Data\EFConfigurations\CustomerConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
