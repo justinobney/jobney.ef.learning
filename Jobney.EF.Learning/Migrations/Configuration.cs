@@ -4,7 +4,7 @@ using System.Data.Entity.Migrations;
 
 namespace Jobney.EF.Learning.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<Jobney.EF.Learning.Data.DataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataContext>
     {
         public Configuration()
         {

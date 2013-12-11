@@ -1,10 +1,10 @@
 ﻿@model Jobney.EF.Learning.Models.Customer
 
-@{
-    ViewBag.Title = "title";
-}
+<div class="container">
+    @Html.Partial("_TopBar")
 
-<h2>This is your title</h2>
-<strong>First Name: </strong>@Model.FirstName
-<br />
-<strong>Last Name: </strong>@Model.LastName
+    <h2>This is your title</h2>
+    <strong>First Name: </strong>@Model.FirstName
+    <br />
+    <strong>Last Name: </strong>@Model.LastName
+</div>
