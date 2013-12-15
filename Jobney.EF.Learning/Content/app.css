@@ -1,9 +1,14 @@
-﻿body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #FFF;
+﻿[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
 }
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-color: #FFF;
+}
+
+h1, h2, h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

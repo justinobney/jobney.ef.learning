@@ -164,6 +164,8 @@
     <Content Include="Scripts\AngularUI\ui-router.js" />
     <Content Include="Scripts\AngularUI\ui-router.min.js" />
     <Content Include="Scripts\App\App1\main-ctrl.js" />
+    <Content Include="Scripts\App\App1\routes.js" />
+    <Content Include="Scripts\App\App1\Templates\layout.html" />
     <Content Include="Scripts\App\App1\_module.js" />
     <Content Include="Scripts\App\Shared\Services\SampleService.js" />
     <Content Include="Scripts\App\Shared\Services\_module.js" />
@@ -192,6 +194,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_TopBar.cshtml" />
     <Content Include="Views\Home\SinglePageApp.cshtml" />
+    <Content Include="Views\Shared\_ngHelpers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

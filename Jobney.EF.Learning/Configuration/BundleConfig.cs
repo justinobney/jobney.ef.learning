@@ -24,7 +24,10 @@ namespace Jobney.EF.Learning
                 .IncludeDirectory("~/Scripts/App/Shared/Services", "*.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/ng-App1")
-                .Include("~/Scripts/App/App1/_module.js")
+                .Include(
+                    "~/Scripts/App/App1/_module.js",
+                    "~/Scripts/App/App1/routes.js"
+                )
                 .IncludeDirectory("~/Scripts/App/App1", "*.js"));
             
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

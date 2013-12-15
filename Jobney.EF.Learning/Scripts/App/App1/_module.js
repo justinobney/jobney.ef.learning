@@ -2,7 +2,8 @@
     'use strict';
 
     var app = angular.module('Learning.App1', [
-        'Learning.Services'
+        'Learning.Services',
+        'ui.router'
     ]);
 
     app.config([function() {

@@ -1,0 +1,15 @@
+﻿@using System.Security.Policy
+<script>
+    (function () {
+        'use strict';
+
+        var app = angular.module('Learning.Services');
+
+        app.constant('UrlServiceProvider', {
+            resolveUrl: function (url) {
+                var base = '@Url.Content("~/")';
+                return base + url;
+            }
+        });
+    })();
+</script>
