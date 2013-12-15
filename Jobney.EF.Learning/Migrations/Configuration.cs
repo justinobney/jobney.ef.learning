@@ -1,7 +1,10 @@
+using System.Linq;
+using System.Web.Security;
+using Jobney.EF.Learning.Common;
 using Jobney.EF.Learning.Data;
 using Jobney.EF.Learning.Models;
 using System.Data.Entity.Migrations;
-//using WebMatrix.WebData;
+using WebMatrix.WebData;
 
 namespace Jobney.EF.Learning.Migrations
 {
@@ -14,7 +17,7 @@ namespace Jobney.EF.Learning.Migrations
 
         protected override void Seed(DataContext context)
         {
-            //InitializeMembership();
+            InitializeMembership();
 
             context.Set<Customer>().AddOrUpdate(
                 c => c.Email,
@@ -22,28 +25,28 @@ namespace Jobney.EF.Learning.Migrations
                 {
                     FirstName = "Jim",
                     LastName = "Smith",
-                    Email = "jim@aol.com"
+                    Email = "admin@admin.com"
                 });
         }
 
-        //private static void InitializeMembership()
-        //{
-        //    if (!WebSecurity.Initialized)
-        //    {
-        //        WebSecurity.InitializeDatabaseConnection("DefaultConnection", "Customer", "Id", "Email", autoCreateTables: true);
-        //    }
+        private static void InitializeMembership()
+        {
+            if (!WebSecurity.Initialized)
+            {
+                WebSecurity.InitializeDatabaseConnection("DefaultConnection", "Customer", "Id", "Email", autoCreateTables: true);
+            }
 
-        //    Setup.ConfigureSecurityRolesIfNotExist();
+            Setup.ConfigureSecurityRolesIfNotExist();
 
-        //    if (!WebSecurity.UserExists("admin@admin.com"))
-        //    {
-        //        WebSecurity.CreateUserAndAccount("admin@admin.com", "password");
-        //    }
+            if (!WebSecurity.UserExists("admin@admin.com"))
+            {
+                WebSecurity.CreateAccount("admin@admin.com", "password");
+            }
 
-        //    if (!Roles.GetRolesForUser("admin@admin.com").ToList().Contains(Constants.ROLES_ADMINISTRATOR))
-        //    {
-        //        Roles.AddUsersToRoles(new[] {"admin@admin.com"}, new[] {Constants.ROLES_ADMINISTRATOR});
-        //    }
-        //}
+            if (!Roles.GetRolesForUser("admin@admin.com").ToList().Contains(Constants.ROLES_ADMINISTRATOR))
+            {
+                Roles.AddUsersToRoles(new[] { "admin@admin.com" }, new[] { Constants.ROLES_ADMINISTRATOR });
+            }
+        }
     }
 }

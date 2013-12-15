@@ -12,6 +12,8 @@ namespace Jobney.EF.Learning.Data.EFConfigurations
 
             Property(x => x.LastName)
                 .IsRequired();
+
+            
         }
     }
 }
