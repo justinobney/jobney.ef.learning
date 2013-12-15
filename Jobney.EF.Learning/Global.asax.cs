@@ -1,8 +1,10 @@
-﻿using System.Web.Http;
+﻿using System.Data.Entity;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Jobney.EF.Learning.Configuration;
+using Jobney.EF.Learning.Data;
 
 namespace Jobney.EF.Learning
 {
@@ -20,6 +22,8 @@ namespace Jobney.EF.Learning
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Migrations.Configuration>());
         }
     }
 }

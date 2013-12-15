@@ -1,6 +1,7 @@
 using Jobney.EF.Learning.Data;
 using Jobney.EF.Learning.Models;
 using System.Data.Entity.Migrations;
+//using WebMatrix.WebData;
 
 namespace Jobney.EF.Learning.Migrations
 {
@@ -13,6 +14,8 @@ namespace Jobney.EF.Learning.Migrations
 
         protected override void Seed(DataContext context)
         {
+            //InitializeMembership();
+
             context.Set<Customer>().AddOrUpdate(
                 c => c.Email,
                 new Customer
@@ -22,5 +25,25 @@ namespace Jobney.EF.Learning.Migrations
                     Email = "jim@aol.com"
                 });
         }
+
+        //private static void InitializeMembership()
+        //{
+        //    if (!WebSecurity.Initialized)
+        //    {
+        //        WebSecurity.InitializeDatabaseConnection("DefaultConnection", "Customer", "Id", "Email", autoCreateTables: true);
+        //    }
+
+        //    Setup.ConfigureSecurityRolesIfNotExist();
+
+        //    if (!WebSecurity.UserExists("admin@admin.com"))
+        //    {
+        //        WebSecurity.CreateUserAndAccount("admin@admin.com", "password");
+        //    }
+
+        //    if (!Roles.GetRolesForUser("admin@admin.com").ToList().Contains(Constants.ROLES_ADMINISTRATOR))
+        //    {
+        //        Roles.AddUsersToRoles(new[] {"admin@admin.com"}, new[] {Constants.ROLES_ADMINISTRATOR});
+        //    }
+        //}
     }
 }
