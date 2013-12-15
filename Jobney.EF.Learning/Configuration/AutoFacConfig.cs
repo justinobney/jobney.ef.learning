@@ -1,6 +1,6 @@
 using Autofac;
-using Autofac.Integration.Mvc;
 using System.Web.Mvc;
+using Autofac.Integration.Mvc;
 
 namespace Jobney.EF.Learning.Configuration
 {
