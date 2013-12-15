@@ -24,6 +24,12 @@ namespace Jobney.EF.Learning
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Migrations.Configuration>());
+
+            //Touch Repository to Create if not exists
+            using (var context = new DataContext())
+            {
+                context.Database.Initialize(true);
+            }
         }
     }
 }
