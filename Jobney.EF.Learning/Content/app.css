@@ -12,3 +12,9 @@ h1, h2, h3 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.viewport {
+  white-space: nowrap;
+  max-height: 300px;
+  border: 1px solid blue;
+}

@@ -1,5 +1,5 @@
-﻿<div>
+﻿<div class="viewport">
     <ul>
-        <li>This is a list</li>
+        <li sf-virtual-repeat="line in getLines()" ng-model="scrollModel">This is a list</li>
     </ul>
 </div>

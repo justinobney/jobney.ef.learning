@@ -25,6 +25,7 @@ namespace Jobney.EF.Learning
 
             bundles.Add(new ScriptBundle("~/bundles/ng-App1")
                 .Include(
+                    "~/Scripts/angular-virtual-scroll.js",
                     "~/Scripts/App/App1/_module.js",
                     "~/Scripts/App/App1/routes.js"
                 )

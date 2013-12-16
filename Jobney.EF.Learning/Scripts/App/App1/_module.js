@@ -3,7 +3,8 @@
 
     var app = angular.module('Learning.App1', [
         'Learning.Services',
-        'ui.router'
+        'ui.router',
+        'sf.virtualScroll'
     ]);
 
     app.config([function() {
