@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>403a8854-8c4b-4317-b3e1-351c6a4f32cc</ProjectGuid>
+    <ProjectGuid>{4306DBCB-8EDA-48E7-8F2D-E8431DE835D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Jobney.Tests</RootNamespace>
@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Envoc.Core.Shared">
+      <HintPath>..\packages\Envoc.Core.Shared.3.0.0.33\lib\Envoc.Core.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Envoc.Core.UnitTests">
+      <HintPath>..\packages\Envoc.Core.UnitTests.3.0.0.33\lib\Envoc.Core.UnitTests.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -50,8 +56,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jobney.EF.Learning\Jobney.EF.Learning.csproj">
+      <Project>{9CB791BA-8C12-4012-BB2A-BFFFAF31C03D}</Project>
+      <Name>Jobney.EF.Learning</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

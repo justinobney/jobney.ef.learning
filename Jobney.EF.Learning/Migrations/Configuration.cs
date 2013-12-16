@@ -17,8 +17,6 @@ namespace Jobney.EF.Learning.Migrations
 
         protected override void Seed(DataContext context)
         {
-            InitializeMembership();
-
             context.Set<Customer>().AddOrUpdate(
                 c => c.Email,
                 new Customer
@@ -27,6 +25,11 @@ namespace Jobney.EF.Learning.Migrations
                     LastName = "Smith",
                     Email = "admin@admin.com"
                 });
+
+            context.SaveChanges();
+            
+            InitializeMembership();
+
         }
 
         private static void InitializeMembership()

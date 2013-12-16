@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.EF.Learning", "Jobney.EF.Learning\Jobney.EF.Learning.csproj", "{9CB791BA-8C12-4012-BB2A-BFFFAF31C03D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jobney.Tests", "Jobney.Tests\Jobney.Tests.csproj", "{4306DBCB-8EDA-48E7-8F2D-E8431DE835D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{9CB791BA-8C12-4012-BB2A-BFFFAF31C03D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CB791BA-8C12-4012-BB2A-BFFFAF31C03D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CB791BA-8C12-4012-BB2A-BFFFAF31C03D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4306DBCB-8EDA-48E7-8F2D-E8431DE835D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4306DBCB-8EDA-48E7-8F2D-E8431DE835D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4306DBCB-8EDA-48E7-8F2D-E8431DE835D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4306DBCB-8EDA-48E7-8F2D-E8431DE835D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
