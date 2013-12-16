@@ -26,5 +26,10 @@ namespace Jobney.EF.Learning.Controllers
         {
             return View();
         }
+
+        public ActionResult ListOfProducts()
+        {
+            return Json(new {});
+        }
     }
 }

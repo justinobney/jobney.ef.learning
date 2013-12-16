@@ -164,9 +164,12 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\AngularUI\ui-router.js" />
     <Content Include="Scripts\AngularUI\ui-router.min.js" />
+    <Content Include="Scripts\App\App1\Home\home-ctrl.js" />
     <Content Include="Scripts\App\App1\main-ctrl.js" />
     <Content Include="Scripts\App\App1\routes.js" />
-    <Content Include="Scripts\App\App1\Templates\layout.html" />
+    <Content Include="Scripts\App\App1\Templates\Home\list.html" />
+    <Content Include="Scripts\App\App1\Templates\Home\log.html" />
+    <Content Include="Scripts\App\App1\Templates\Home\layout.html" />
     <Content Include="Scripts\App\App1\_module.js" />
     <Content Include="Scripts\App\Shared\Services\SampleService.js" />
     <Content Include="Scripts\App\Shared\Services\_module.js" />

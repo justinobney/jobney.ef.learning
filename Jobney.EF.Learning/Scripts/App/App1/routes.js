@@ -15,17 +15,17 @@
 
             $stateProvider.state('home', {
                 'abstract': true,
-                templateUrl: resolve('scripts/app/app1/templates/layout.html')
+                templateUrl: resolve('scripts/app/app1/templates/home/layout.html')
             });
 
             $stateProvider.state('home.index', {
                 url: '/home',
                 views: {
                     "home-navigation": {
-                        template: resolve('scripts/app/app1/templates/layout.html')
+                        templateUrl: resolve('scripts/app/app1/templates/home/log.html')
                     },
                     "home-content": {
-                        template: resolve('scripts/app/app1/templates/layout.html')
+                        templateUrl: resolve('scripts/app/app1/templates/home/list.html')
                     }
                 }
             });
