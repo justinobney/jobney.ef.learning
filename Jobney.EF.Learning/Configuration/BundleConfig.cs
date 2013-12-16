@@ -28,7 +28,7 @@ namespace Jobney.EF.Learning
                     "~/Scripts/App/App1/_module.js",
                     "~/Scripts/App/App1/routes.js"
                 )
-                .IncludeDirectory("~/Scripts/App/App1", "*.js"));
+                .IncludeDirectory("~/Scripts/App/App1", "*.js", true));
             
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
