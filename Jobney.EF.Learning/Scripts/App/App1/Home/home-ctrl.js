@@ -5,7 +5,7 @@
 
     app.controller('HomeCtrl', ['$scope', '$timeout', 'SampleService', function ($scope, $timeout, SampleService) {
         $scope.book = {
-            lines: _.times(10, function (n) { return n; }),
+            lines: _.times(25, function (n) { return n; }),
             total: 1000
         };
 
@@ -17,11 +17,13 @@
         $scope.getLines = function() {
             return $scope.book.lines;
         };
-
-        var loadMoreThrottled = _.throttle(loadMore, 1000, {
+        
+        var loadMoreThrottled = _.throttle(loadMore, 250, {
             leading: true,
             trailing: true
         });
+        
+        $scope.loadMore = loadMoreThrottled;
 
         ctor();
         
@@ -34,7 +36,7 @@
                 return false;
             
             var sm = $scope.scrollModel;
-            var offSet = 30;
+            var offSet = 50;
             var closeToEnd = sm.firstVisible + sm.visible + offSet > sm.total;
             var endOfData = sm.total == $scope.book.total;
             var hasInitialized = !!sm.total;
@@ -53,7 +55,7 @@
                 var endOfData = sm.total >= $scope.book.total;
 
                 if (!endOfData)
-                    _.times(10, function (n) { $scope.book.lines.push(1); });
+                    _.times(25, function (n) { $scope.book.lines.push(1); });
 
                 $scope.loading = false;
             });

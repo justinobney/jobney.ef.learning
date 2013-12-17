@@ -1,5 +1,10 @@
 ﻿<div class="viewport">
     <ul>
-        <li sf-virtual-repeat="line in getLines()" ng-model="scrollModel">This is a list</li>
+        <li sf-virtual-repeat="line in getLines()" ng-model="scrollModel">This is a list - {{$index}}</li>
+        <li ng-show="scrollModel.total < book.total" ng-click="loadMore()">
+            <a class="btn btn-primary btn-block">
+                Click to load more
+            </a>
+        </li>
     </ul>
 </div>
