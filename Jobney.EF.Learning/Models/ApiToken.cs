@@ -9,6 +9,6 @@ namespace Jobney.EF.Learning.Models
         public int UserId { get; set; }
         public DateTime Created { get; set; }
         public DateTime ValidUntil { get; set; }
-        public DateTime ExplicitExpirationData { get; set; }
+        public DateTime? ExplicitExpirationDate { get; set; }
     }
 }

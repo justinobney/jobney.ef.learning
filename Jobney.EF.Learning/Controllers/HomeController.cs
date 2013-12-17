@@ -54,7 +54,8 @@ namespace Jobney.EF.Learning.Controllers
                 Key = HashSecurity.GenerateAppSecret(),
                 UserId = user.Id,
                 Created = DateTime.Now,
-                ValidUntil = DateTime.Now.AddDays(30)
+                ValidUntil = DateTime.Now.AddDays(30),
+                ExplicitExpirationDate = null
             };
             tokenService.InsertOrUpdate(token);
             _uow.SaveChanges();
