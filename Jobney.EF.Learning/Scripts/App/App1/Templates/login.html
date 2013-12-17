@@ -10,12 +10,12 @@
         <form role="form" ng-submit="login()">
             <div class="form-group">
                 <label for="inputUsernameEmail">Username or email</label>
-                <input type="text" class="form-control" id="inputUsernameEmail">
+                <input type="text" class="form-control" ng-model="emailAddress">
             </div>
             <div class="form-group">
                 <a class="pull-right" href="#">Forgot password?</a>
                 <label for="inputPassword">Password</label>
-                <input type="password" class="form-control" id="inputPassword">
+                <input type="password" class="form-control" ng-model="password">
             </div>
             <div class="checkbox pull-right">
                 <label>
