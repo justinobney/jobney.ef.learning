@@ -36,6 +36,11 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li class="soft-hide" ng-show="appState.showLoading">
+                    <a href="#">
+                        <img src="@Url.Content("~/Content/Images/pre-loader.gif")" alt="" />
+                    </a>
+                </li>
                 <li>
                     <a href="#">Log out</a>
                 </li>

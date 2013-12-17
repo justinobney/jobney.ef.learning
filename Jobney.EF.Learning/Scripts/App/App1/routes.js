@@ -9,8 +9,22 @@
 
             $stateProvider.state('login', {
                 templateUrl: resolve('scripts/app/app1/templates/login.html'),
-                //controller: 'LoginController',
                 url: '/login'
+            });
+            
+            $stateProvider.state('denied', {
+                template: 'denied',
+                url: '/denied'
+            });
+            
+            $stateProvider.state('payme', {
+                templateUrl: resolve('scripts/app/app1/templates/secret/payme.html'),
+                url: '/payme',
+                resolve: {
+                    user: ['SampleService', function (SampleService) {
+                        return SampleService.isLoggedIn();
+                    }]
+                }
             });
 
             $stateProvider.state('home', {

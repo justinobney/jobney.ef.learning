@@ -171,6 +171,10 @@
     <Content Include="Scripts\App\App1\Templates\Home\list.html" />
     <Content Include="Scripts\App\App1\Templates\Home\log.html" />
     <Content Include="Scripts\App\App1\Templates\Home\layout.html" />
+    <Content Include="Scripts\App\App1\Templates\login.html" />
+    <Content Include="Scripts\App\App1\Templates\login-ctrl.js" />
+    <Content Include="Scripts\App\App1\Templates\Secret\payme-ctrl.js" />
+    <Content Include="Scripts\App\App1\Templates\Secret\payme.html" />
     <Content Include="Scripts\App\App1\_module.js" />
     <Content Include="Scripts\App\Shared\Services\SampleService.js" />
     <Content Include="Scripts\App\Shared\Services\_module.js" />
