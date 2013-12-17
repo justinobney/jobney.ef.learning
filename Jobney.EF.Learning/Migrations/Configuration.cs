@@ -17,19 +17,8 @@ namespace Jobney.EF.Learning.Migrations
 
         protected override void Seed(DataContext context)
         {
-            context.Set<Customer>().AddOrUpdate(
-                c => c.Email,
-                new Customer
-                {
-                    FirstName = "Jim",
-                    LastName = "Smith",
-                    Email = "admin@admin.com"
-                });
-
-            context.SaveChanges();
-            
             InitializeMembership();
-
+            context.SaveChanges();
         }
 
         private static void InitializeMembership()
@@ -43,7 +32,11 @@ namespace Jobney.EF.Learning.Migrations
 
             if (!WebSecurity.UserExists("admin@admin.com"))
             {
-                WebSecurity.CreateAccount("admin@admin.com", "password");
+                WebSecurity.CreateUserAndAccount("admin@admin.com", "password", new {
+                    FirstName = "Jim",
+                    LastName = "Smith"
+                }
+            );
             }
 
             if (!Roles.GetRolesForUser("admin@admin.com").ToList().Contains(Constants.ROLES_ADMINISTRATOR))
