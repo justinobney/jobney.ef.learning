@@ -16,6 +16,7 @@ namespace Jobney.EF.Learning.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Configurations.Add(new CustomerConfiguration());
+            modelBuilder.Configurations.Add(new ApiTokenConfiguration());
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : Entity {

@@ -14,7 +14,8 @@
 
                 return request.then(function (response) {
                     AppState.showLoading = false;
-                    AppState.user = response.data;
+                    AppState.user = response.data.user;
+                    AppState.token = response.data.token;
                     AppState.loggedIn = true;
                 });
             };

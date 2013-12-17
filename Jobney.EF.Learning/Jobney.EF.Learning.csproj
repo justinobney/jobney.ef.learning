@@ -134,6 +134,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Data\EFConfigurations\ApiTokenConfiguration.cs" />
     <Compile Include="Data\EFConfigurations\CustomerConfiguration.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -141,6 +142,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Setup.cs" />
+    <Compile Include="Models\ApiToken.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\HashSecurity.cs" />
