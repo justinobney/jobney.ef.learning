@@ -20,10 +20,8 @@
             $stateProvider.state('payme', {
                 templateUrl: resolve('scripts/app/app1/templates/secret/payme.html'),
                 url: '/payme',
-                resolve: {
-                    user: ['SampleService', function (SampleService) {
-                        return SampleService.isLoggedIn();
-                    }]
+                data: {
+                    authorize: true
                 }
             });
 
