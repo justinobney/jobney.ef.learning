@@ -33,8 +33,10 @@
                     AppState.user = response.data.user;
                     AppState.token = response.data.token;
                     AppState.loggedIn = true;
+                    return AppState.token.Key;
+                } else {
+                    throw "Invalid Token";
                 }
-                return AppState.token.Key;
             });
         };
 

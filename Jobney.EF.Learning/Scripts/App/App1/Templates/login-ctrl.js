@@ -36,7 +36,8 @@
                 $state.transitionTo('payme');
             }
 
-            function loginError() {
+            function loginError(error) {
+                delete $scope.$storage.authToken;
                 alert(error);
             }
         }]);
