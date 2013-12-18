@@ -36,38 +36,50 @@ namespace Jobney.EF.Learning.UnitTests.RequiredTokenContainer
         [TestMethod]
         public void FakingTokens_WorksCorrectly()
         {
+            // Act
             var tokens = tokenService.Query().FirstOrDefault(t => t.Key == "1234ASDF");
 
-            //assert
+            // Assert
             tokens.ShouldNotBeNull();
         }
 
         [TestMethod]
-        public void ResultsIn401_WhenNoHeadersSet()
+        public void Fails_WhenNoHeadersSet()
         {
+            // Arrange
             ((HttpContextBase)filterContextMock.HttpContext).Request.Headers.Returns(info => new NameValueCollection { { "", "" } });
             
             // Act
-            filter.OnAuthorization(filterContextMock);
-            var result = filterContextMock.Result;
+            var result = filter.ValidateHeaderToken(filterContextMock.HttpContext);
 
             // Assert
-            result.ShouldNotBeNull();
-            result.GetType().ShouldBe(typeof(HttpUnauthorizedResult));
+            result.ShouldBe(false);
         }
 
         [TestMethod]
-        public void ResultsIn200_WhenHeadersSet()
+        public void Passes_WhenHeadersValid()
         {
+            // Arrange
             ((HttpContextBase)filterContextMock.HttpContext).Request.Headers.Returns(info => new NameValueCollection { { "X-Api-Token", "1234ASDF" } });
 
             // Act
-            filter.OnAuthorization(filterContextMock);
-            var result = filterContextMock.Result;
+            var result = filter.ValidateHeaderToken(filterContextMock.HttpContext);
 
             // Assert
-            result.ShouldNotBeNull();
-            result.GetType().ShouldNotBe(typeof(HttpUnauthorizedResult));
+            result.ShouldBe(true);
+        }
+
+        [TestMethod]
+        public void Fail_WhenHeadersInvalid()
+        {
+            // Arrange
+            ((HttpContextBase)filterContextMock.HttpContext).Request.Headers.Returns(info => new NameValueCollection { { "X-Api-Token", "XXXXXXX" } });
+
+            // Act
+            var result = filter.ValidateHeaderToken(filterContextMock.HttpContext);
+
+            // Assert
+            result.ShouldBe(false);
         }
 
         private IQueryable<ApiToken> FakeTokens(CallInfo callInfo)

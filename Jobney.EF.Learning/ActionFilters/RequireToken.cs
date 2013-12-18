@@ -23,19 +23,22 @@ namespace Jobney.EF.Learning.ActionFilters
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
+            return ValidateHeaderToken(httpContext) && base.AuthorizeCore(httpContext);
+        }
+
+        public bool ValidateHeaderToken(HttpContextBase httpContext)
+        {
             var token = httpContext.Request.Headers["X-Api-Token"];
-            
+
             if (token == null) return false;
-            
+
             var tokenService = uow.GetRepository<ApiToken>();
             var foundToken = tokenService.Query()
                 .FirstOrDefault(t => t.Key == token);
 
-            var isValid = foundToken != null &&
+            return foundToken != null &&
                           !foundToken.ExplicitExpirationDate.HasValue &&
                           foundToken.ValidUntil > DateTime.Now;
-
-            return isValid && base.AuthorizeCore(httpContext);
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
