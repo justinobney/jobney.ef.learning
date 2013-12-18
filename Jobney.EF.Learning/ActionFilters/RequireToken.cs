@@ -16,6 +16,11 @@ namespace Jobney.EF.Learning.ActionFilters
             uow = DependencyResolver.Current.GetService<IUnitOfWork>(); ;
         }
 
+        public RequireToken(IUnitOfWork uow)
+        {
+            this.uow = uow;
+        }
+
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             var token = httpContext.Request.Headers["X-Api-Token"];
