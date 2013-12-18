@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Jobney.Core.Domain.Interfaces;
@@ -33,7 +34,16 @@ namespace Jobney.EF.Learning.Controllers
 
         public ActionResult ListOfProducts()
         {
-            return Json(new {});
+            var products = new List<dynamic>();
+            for (int i = 0; i < 10; i++)
+            {
+                products.Add(new
+                {
+                    name = "Product " + i.ToString(),
+                    id = i
+                });
+            }
+            return Json(products);
         }
 
         [HttpPost]

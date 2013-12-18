@@ -4,22 +4,36 @@
     var app = angular.module('Learning.Services');
 
     app.factory('SampleService', ['$http', 'UrlServiceProvider', 'AppState', function ($http, UrlServiceProvider, AppState) {
-            var service = {};
-            
-            service.login = function (loginViewModel) {
-                var url = UrlServiceProvider.resolveUrl('Home/Login');
-                AppState.showLoading = true;
+        var service = {};
 
-                var request = $http.post(url, loginViewModel);
+        service.login = function (loginViewModel) {
+            var url = UrlServiceProvider.resolveUrl('Home/Login');
+            AppState.showLoading = true;
 
-                return request.then(function (response) {
-                    AppState.showLoading = false;
-                    AppState.user = response.data.user;
-                    AppState.token = response.data.token;
-                    AppState.loggedIn = true;
-                });
-            };
+            var request = $http.post(url, loginViewModel);
 
-            return service;
-        }]);
+            return request.then(function (response) {
+                AppState.showLoading = false;
+                AppState.user = response.data.user;
+                AppState.token = response.data.token;
+                AppState.loggedIn = true;
+            });
+        };
+
+        service.products = {};
+
+        service.products.get = function () {
+            var url = UrlServiceProvider.resolveUrl('Home/ListOfProducts');
+            AppState.showLoading = true;
+
+            var request = $http.get(url);
+
+            return request.then(function (response) {
+                AppState.showLoading = false;
+                return response.data;
+            });
+        };
+
+        return service;
+    }]);
 })();
