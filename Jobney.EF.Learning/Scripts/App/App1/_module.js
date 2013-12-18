@@ -4,7 +4,8 @@
     var app = angular.module('Learning.App1', [
         'Learning.Services',
         'ui.router',
-        'sf.virtualScroll'
+        'sf.virtualScroll',
+        'ngStorage'
     ]);
 
     app.config([function() {

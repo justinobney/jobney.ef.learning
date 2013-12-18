@@ -17,7 +17,7 @@
             AppState.showLoading = true;
             if (toState.data && toState.data.authorize && !AppState.loggedIn) {
                 event.preventDefault();
-                $state.transitionTo('denied');
+                $state.transitionTo('login');
             }
         });
         

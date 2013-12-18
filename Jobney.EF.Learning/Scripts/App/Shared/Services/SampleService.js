@@ -17,6 +17,24 @@
                 AppState.user = response.data.user;
                 AppState.token = response.data.token;
                 AppState.loggedIn = true;
+                return AppState.token.Key;
+            });
+        };
+        
+        service.validateToken = function (token) {
+            var url = UrlServiceProvider.resolveUrl('Home/ValidateToken');
+            AppState.showLoading = true;
+
+            var request = $http.post(url, { token: token });
+
+            return request.then(function (response) {
+                AppState.showLoading = false;
+                if (response.data.isValid) {
+                    AppState.user = response.data.user;
+                    AppState.token = response.data.token;
+                    AppState.loggedIn = true;
+                }
+                return AppState.token.Key;
             });
         };
 

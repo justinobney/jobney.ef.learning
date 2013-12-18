@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Jobney.Core.Domain.Interfaces;
+using Jobney.EF.Learning.ActionFilters;
 using Jobney.EF.Learning.Models;
 using Jobney.EF.Learning.Security;
 using Jobney.EF.Learning.ViewModels;
@@ -32,6 +33,7 @@ namespace Jobney.EF.Learning.Controllers
             return View();
         }
 
+        [LogActionFilter]
         public ActionResult ListOfProducts()
         {
             var products = new List<dynamic>();
@@ -44,6 +46,26 @@ namespace Jobney.EF.Learning.Controllers
                 });
             }
             return Json(products);
+        }
+
+        [HttpPost]
+        public ActionResult ValidateToken(string token)
+        {
+            var tokenService = _uow.GetRepository<ApiToken>();
+            var customerService = _uow.GetRepository<Customer>();
+            var user = new Customer();
+            var foundToken = tokenService.Query()
+                .FirstOrDefault(t => t.Key == token);
+
+            var isValid = foundToken != null && 
+                !foundToken.ExplicitExpirationDate.HasValue &&
+                          foundToken.ValidUntil > DateTime.Now;
+            if (isValid)
+            {
+                user = customerService.GetById(foundToken.UserId);
+            }
+
+            return Json(new { isValid, user, token = foundToken });
         }
 
         [HttpPost]
