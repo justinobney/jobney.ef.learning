@@ -22,6 +22,8 @@ namespace Jobney.EF.Learning.Configuration
             builder.RegisterType<UnitOfWork>()
                 .As<IUnitOfWork>()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterFilterProvider();
         }
 
         private void RegisterGeneric(ContainerBuilder builder, Type type)

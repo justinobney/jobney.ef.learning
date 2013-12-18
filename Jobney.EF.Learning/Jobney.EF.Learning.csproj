@@ -124,6 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\RequireToken.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Configuration\AutoFacConfig.cs" />
     <Compile Include="Configuration\BundleConfig.cs" />

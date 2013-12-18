@@ -33,7 +33,7 @@ namespace Jobney.EF.Learning.Controllers
             return View();
         }
 
-        [LogActionFilter]
+        [RequireToken]
         public ActionResult ListOfProducts()
         {
             var products = new List<dynamic>();
