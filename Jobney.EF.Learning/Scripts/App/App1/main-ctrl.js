@@ -3,13 +3,6 @@
 
     var app = angular.module('Learning.App1');
     
-    app.factory('AppState', [function () {
-        return {
-            showLoading: false,
-            loggedIn: false
-        };
-    }]);
-
     app.controller('MainCtrl', ['$scope', '$state', 'AppState', function ($scope, $state, AppState) {
         $scope.appState = AppState;
 

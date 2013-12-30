@@ -2,7 +2,6 @@ using System.Linq;
 using System.Web.Security;
 using Jobney.EF.Learning.Common;
 using Jobney.EF.Learning.Data;
-using Jobney.EF.Learning.Models;
 using System.Data.Entity.Migrations;
 using WebMatrix.WebData;
 
